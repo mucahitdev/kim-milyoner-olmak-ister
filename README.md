@@ -3,7 +3,7 @@
 ## Yapım Aşamasında
 
 > - ### Program
-> - [ ] 1 ) Auth yapısı
+> - [X] 1 ) Auth yapısı
 > - [ ] 2 ) Profil düzenleme
 > - [ ] 3 ) Oyun alanı
 > - [ ] 4 ) Soru ekleme
