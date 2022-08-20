@@ -1,9 +1,10 @@
 import { Outlet, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { userData } from "../redux/userSlice";
+import { useIsLoggedIn } from "../config/hooks";
 
 export const Layout = () => {
-  const user = useSelector(userData);
-  if (user === null) return <Navigate to="/login" replace />;
+  const isLoggedIn = useIsLoggedIn();
+
+  if (isLoggedIn === null) return <h1>Loading...</h1>;
+  else if (isLoggedIn === false) return <Navigate replace to="/login" />;
   return <Outlet />;
 };

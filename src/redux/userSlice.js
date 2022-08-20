@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 export const loginAsync = createAsyncThunk("user/login", async () => {
   try {
     await signInWithPopup(auth, providerGoogle);
+    window.location.reload();
     toast.success("Giriş başarılı!");
     return auth;
   } catch (error) {
@@ -17,6 +18,7 @@ export const loginAsync = createAsyncThunk("user/login", async () => {
 export const signOut = createAsyncThunk("user/signOut", async () => {
   try {
     await auth.signOut();
+    window.location.reload();
     toast.success("Çıkış başarılı!");
   } catch (error) {
     console.log(error);
