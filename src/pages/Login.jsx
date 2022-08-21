@@ -15,7 +15,7 @@ export const Login = () => {
     <div>
       <h1>Login</h1>
 
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleLogin}>Google ile giriş yap</button>
     </div>
   );
 };
