@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { GoogleAuthProvider, getAuth } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, updateProfile } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -17,3 +19,10 @@ export const auth = getAuth();
 getAnalytics(app);
 
 export const providerGoogle = new GoogleAuthProvider();
+export const db = getFirestore(app);
+export const storage = getStorage(app);
+
+
+export const updateProfileAsync = (displayName, photoURL) => {
+  return updateProfile(auth.currentUser, { displayName, photoURL });
+}

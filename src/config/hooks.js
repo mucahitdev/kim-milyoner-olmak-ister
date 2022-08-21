@@ -2,6 +2,8 @@ import { auth } from "../config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 
+// Auth hook
+
 export const useIsLoggedIn = () => {
   const [isLogin, setIsLogin] = useState(null);
   useEffect(() => {
@@ -12,3 +14,14 @@ export const useIsLoggedIn = () => {
 
   return isLogin;
 };
+
+// Title hook
+
+export const useDocumentTitle = (title) => {
+
+  useEffect(() => {
+      document.title = `${title} - Milyoner`;
+  }, [title]);
+
+  return null;
+}
