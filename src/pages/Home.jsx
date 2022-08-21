@@ -12,8 +12,6 @@ export const Home = () => {
     dispatch(signOut());
   };
 
-  
-
   return (
     <div>
       <h1>Home</h1>
