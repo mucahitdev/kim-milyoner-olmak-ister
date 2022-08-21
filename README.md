@@ -2,6 +2,8 @@
 
 ## Yapım Aşamasında
 
+### Geliştirmeler "dev" branch'inde yapılıyor. "Master" branch'ini versionlara göre güncelleyeceğim.
+
 > - ### Program
 > - [X] 1 ) Auth yapısı
 > - [X] 2 ) Profil düzenleme
