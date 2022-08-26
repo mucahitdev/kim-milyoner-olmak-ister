@@ -14,6 +14,7 @@ export const Settings = () => {
   const [fullName, setFullName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [photoFile, setPhotoFile] = useState(null);
+  const [soundVolume, setSoundVolume] = useState(localStorage.getItem("soundVolume")|| '5');
 
   const user = useSelector(userData);
   const loading = useSelector(uploadLoading);
@@ -47,7 +48,26 @@ export const Settings = () => {
   return (
     <div className="h-full flex flex-col justify-center items-center">
       <h1 className="font-extrabold text-3xl pb-20">Ayarlar</h1>
-
+      <div className="w-1/2 mb-3">
+        <label
+          htmlFor="minmax-range"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >
+          Oyun sesi
+        </label>
+        <input
+          id="minmax-range"
+          type="range"
+          min="0"
+          max="10"
+          value={soundVolume}
+          onChange={(e) => {
+            setSoundVolume(e.target.value);
+            localStorage.setItem("soundVolume", e.target.value);
+          } }
+          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+        />
+      </div>
       <div className="bg-gray-800 text-white font-medium rounded-xl p-3">
         <div className="flex flex-col items-center space-y-3">
           <h3 className="font-medium text-2xl"> İsmini düzenle </h3>

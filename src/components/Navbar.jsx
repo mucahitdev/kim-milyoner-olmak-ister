@@ -11,6 +11,7 @@ import { logo } from "../assets";
 const navigation = [
   { name: "Ana Sayfa", href: "/" },
   { name: "Ayarlar", href: "/settings" },
+  { name: "Oyun", href: "/game" },
 ];
 
 function classNames(...classes) {

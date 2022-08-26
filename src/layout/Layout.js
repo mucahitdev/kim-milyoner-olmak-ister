@@ -16,7 +16,9 @@ export const Layout = () => {
   return (
     <div className="h-full">
       <Navbar />
-      <Outlet />
+      <div className="h-full container mx-auto pt-20">
+        <Outlet />
+      </div>
     </div>
   );
 };

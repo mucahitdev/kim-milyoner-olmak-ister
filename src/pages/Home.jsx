@@ -4,7 +4,7 @@ export const Home = () => {
   useDocumentTitle("Ana Sayfa");
 
   return (
-    <div className="pt-20">
+    <div className="">
       <h1>Home</h1>
     </div>
   );
