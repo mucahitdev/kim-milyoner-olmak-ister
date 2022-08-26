@@ -17,6 +17,8 @@ export const GameArea = () => {
   const [step, setStep] = useState(0);
   const [finish, setFinish] = useState(false);
   const [activeAnswer, setActiveAnswer] = useState(null);
+  const [answered, setAnswered] = useState(false);
+
   const volume = (localStorage.getItem("soundVolume") || "5") / 10;
   const [playSound] = useSound(play, { volume, interrupt: true });
   const [correctSound] = useSound(correct, { volume, interrupt: true });
@@ -42,6 +44,7 @@ export const GameArea = () => {
 
   const handleClick = (answer) => {
     setActiveAnswer(answer);
+    setAnswered(true);
     waitSound();
     const timout = setTimeout(() => {
       if (step !== 12) {
@@ -59,6 +62,7 @@ export const GameArea = () => {
       }
       stop();
       setActiveAnswer(null);
+      setAnswered(false);
     }, 3000);
     return () => clearTimeout(timout);
   };
@@ -77,7 +81,7 @@ export const GameArea = () => {
         <div className="h-full flex">
           <div className="w-3/4 rounded-tl-md">
             <div className="h-2/5 flex justify-center items-center">
-              <Timer setFinish={setFinish} step={step} />
+              <Timer setFinish={setFinish} step={step} answered={answered} />
             </div>
             <div className="h-3/5">
               <div className="h-1/3 flex justify-center items-center">
