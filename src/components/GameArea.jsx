@@ -85,7 +85,7 @@ export const GameArea = () => {
             </div>
             <div className="h-3/5">
               <div className="h-1/3 flex justify-center items-center">
-                <p className="bg-blue-400 p-2 rounded-full">
+                <p className="bg-blue-400 p-4 text-justify rounded-full">
                   {questionData && questionData.question}
                 </p>
               </div>
