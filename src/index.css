@@ -1,11 +1,22 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;500;700;800&display=swap');
+
+body,
+#root,
+.App {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  height: 100vh;
+  font-family:'Barlow', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.togg {
+  position: absolute;
+  inset: 0px auto auto 0px;
+  margin: 0px;
+  transform: translate3d(661px, 82px, 0px);
+}
