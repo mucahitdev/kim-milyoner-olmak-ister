@@ -10,6 +10,7 @@ import play from "../assets/sounds/play.mp3";
 import correct from "../assets/sounds/correct.mp3";
 import wrong from "../assets/sounds/wrong.mp3";
 import wait from "../assets/sounds/wait.mp3";
+import { useDocumentTitle } from "../config/hooks";
 
 export const GameArea = () => {
   const [questionData, setQuestionData] = useState(null);
@@ -28,6 +29,8 @@ export const GameArea = () => {
     const randomIndex = Math.floor(Math.random() * questions.length);
     return [questions[randomIndex], correctAnswers[randomIndex]];
   };
+
+  useDocumentTitle(`${step + 1}. Soru`);
 
   useEffect(() => {
     playSound();
@@ -79,9 +82,12 @@ export const GameArea = () => {
     <div className="h-full w-full">
       {!finish ? (
         <div className="h-full flex">
-          <div className="w-3/4 rounded-tl-md">
-            <div className="h-2/5 flex justify-center items-center">
+          <div className="w-full sm:w-3/4 rounded-tl-md">
+            <div className="h-2/5 flex flex-col justify-center items-center">
               <Timer setFinish={setFinish} step={step} answered={answered} />
+              <div className="text-2xl pt-5 text-green-500">
+                <b> {activeMoney.money} </b>
+              </div>
             </div>
             <div className="h-3/5">
               <div className="h-1/3 flex justify-center items-center">
@@ -102,7 +108,7 @@ export const GameArea = () => {
               </div>
             </div>
           </div>
-          <div className="w-1/4">
+          <div className="w-1/4 hidden sm:block">
             <div className="h-full flex flex-col justify-around rounded-tr-md">
               {stepMoney.map((data, index) => (
                 <Piramit key={index} data={data} active={activeMoney.money} />
